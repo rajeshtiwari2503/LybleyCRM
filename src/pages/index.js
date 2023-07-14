@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { HomePage } from './homePage'
 // import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -109,7 +110,7 @@ export default function Home() {
           </a>
         </div>
       </main> */}
-      <div>home</div>
+       <HomePage />
     </>
   )
 }
