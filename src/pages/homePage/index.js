@@ -5,9 +5,9 @@ import Header from '../common/Header'
 
 export const HomePage = () => {
     return (
-        <div className='container'>
+        <div >
         <Header />
-            <div>HomePage</div>
+            <div className='container'>HomePage</div>
             <Footer />
         </div>
     )
