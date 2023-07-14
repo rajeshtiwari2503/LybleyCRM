@@ -6,10 +6,12 @@ import Search from '../search'
 
 export const HomePage = () => {
     return (
-        <div className='container'>
+        <div >
         <Header />
+
             <div>HomePage</div>
             <Search />
+            <div className='container'>HomePage</div>
             <Footer />
         </div>
     )
