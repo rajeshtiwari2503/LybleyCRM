@@ -11,9 +11,13 @@ export const HomePage = () => {
     return (
         <div >
         <Header />
+ 
             <Carousels />
             <div className='container mt-5 mb-5'>
+ 
             <Search />
+            <div className='container mt-5 mb-5'>
+          
              <Services />
            
             </div>
