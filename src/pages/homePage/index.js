@@ -12,8 +12,9 @@ export const HomePage = () => {
         <div >
         <Header />
             <Carousel />
-            <div className='container mt-5 mb-5'>
             <Search />
+            <div className='container mt-5 mb-5'>
+          
              <Services />
            
             </div>
