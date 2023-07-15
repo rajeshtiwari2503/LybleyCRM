@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Link from 'next/link';
- 
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
  
 
 const pages = [{name:'Home Appliances Repaire',link:"/homeAppliancesRepaire"}, {name:'Home Care Plan',link:'/homeCarePlan'}, {name:'B2B',link:'/B2B'}];
@@ -39,10 +39,10 @@ function Header() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  // "#15939a"
   return (
    
-    <AppBar position="static" style={{backgroundColor:"#15939a"}} >
+    <AppBar position="static" style={{backgroundColor:"black"}} >
       <Container maxWidth="xl">
       <div className='container'>
         <Toolbar disableGutters>
@@ -102,6 +102,7 @@ function Header() {
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+         
           <Typography
             variant="h5"
             noWrap
@@ -120,9 +121,11 @@ function Header() {
           >
             LOGO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },justifyContent:"flex-end" }}>
             {pages?.map((page) => (
-               <Link className='text-decoration-none' href={page?.link}> <Button
+          <div className='me-3'>
+               <Link className='text-decoration-none' href={page?.link}>
+                 <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -130,10 +133,10 @@ function Header() {
              {page?.name}  
               </Button>
               </Link>
+          </div>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0 ,display:"flex",alignItems:"center"}}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -161,6 +164,9 @@ function Header() {
                 </MenuItem>
               ))}
             </Menu>
+            <div className='ms-2 ms-md-5'>
+            <ShoppingCartIcon   fontSize='large'/>
+            </div>
           </Box>
         </Toolbar>
     </div>
