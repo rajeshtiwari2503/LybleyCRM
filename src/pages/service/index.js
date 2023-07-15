@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const dArray = [
@@ -49,11 +50,11 @@ const Services = () => {
             <div className='mt-5'>
                 <div className='row w-100'>
                   {dArray?.map((item,i)=>  <div   className='mb-3 col-6 col-md-4 col-lg-3' key={i}>
-                    <div className='text-center'>
+                  <Link className='text-decoration-none text-dark' href="/repairService">  <div className='text-center'>
                     {/* <div>{item?.id}</div> */}
                     <img className='card-img-top rounded-circle'  src={item?.imageLogo} alt='service' style={{height:"110px",width:"150px"}} />
                     <div className='text-center mt-2'>{item?.imageName}</div>
-                  </div>
+                  </div></Link>
                   </div>
                   )}
                 </div>
