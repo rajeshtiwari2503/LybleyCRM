@@ -1,7 +1,10 @@
 import React from 'react'
 import style from "./search.module.css"
 import SearchIcon from '@mui/icons-material/Search';
+import { useState } from 'react';
 const Search = () => {
+
+  const [search,setSearch]=useState("");
   return (
     <div className={`${style.searchBody}`}>
       {/* <div className='col-12 mt-4'>
@@ -10,11 +13,20 @@ const Search = () => {
         </div>
       </div> */}
       <div className=' mt-3'>
-      <div className={`${style.searchBox}`}>
-      <input type="text" placeholder="Search..." />
-      {/* <button type="submit">Search</button> */}
-      <SearchIcon fontSize='large' />
-    </div>
+        <div className={`${search ? style.searchBoxClick : style.searchBox}`}>
+          <input onChange={(e)=>setSearch(e.currentTarget.value)} name='search' value={search} type="text" placeholder="Search..." />
+          {/* <button type="submit">Search</button> */}
+          <SearchIcon className='me-2' fontSize='medium' />
+
+        </div>
+        {search ? <div className={`${style.categoryList} `}>
+          <div className='ps-2' > Fan</div>
+          <div className='ps-2' > Cooler</div>
+          <div className='ps-2' > Mixer</div>
+          <div className='ps-2' > Search Results</div>
+        </div>
+          : ""
+        }
       </div>
     </div>
   )
