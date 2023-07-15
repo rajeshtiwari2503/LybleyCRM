@@ -12,10 +12,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Link from 'next/link';
  
  
 
-const pages = ['Home Appliances Repaire', 'Home Care Plan', 'B2B'];
+const pages = [{name:'Home Appliances Repaire',link:"/homeAppliancesRepaire"}, {name:'Home Care Plan',link:'/homeCarePlan'}, {name:'B2B',link:'/B2B'}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
  
 function Header() {
@@ -40,8 +41,10 @@ function Header() {
   };
 
   return (
+   
     <AppBar position="static" style={{backgroundColor:"#15939a"}} >
       <Container maxWidth="xl">
+      <div className='container'>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
@@ -53,13 +56,13 @@ function Header() {
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 1000,
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            LY3LEY
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -93,7 +96,7 @@ function Header() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                 <Link className='text-decoration-none' href={page?.link}><Typography textAlign="center">{page?.name}</Typography></Link> 
                 </MenuItem>
               ))}
             </Menu>
@@ -118,14 +121,15 @@ function Header() {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
+            {pages?.map((page) => (
+               <Link className='text-decoration-none' href={page?.link}> <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+             {page?.name}  
               </Button>
+              </Link>
             ))}
           </Box>
 
@@ -159,6 +163,7 @@ function Header() {
             </Menu>
           </Box>
         </Toolbar>
+    </div>
       </Container>
     </AppBar>
   );
