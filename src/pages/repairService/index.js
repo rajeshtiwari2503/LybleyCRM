@@ -26,14 +26,18 @@ const Repair = () => {
                 </div>
             </div>
         </div>
-        <WhyChose />
-        <Faqs />
-        <RecommendedServices />
+ 
+       
+    
       
         </div>
  
         <Service />
- 
+     <WhyChose />
+        <div className="container mt-2">
+        <Faqs />
+        <RecommendedServices />
+        </div>
         <Footer />
  
     </div>
