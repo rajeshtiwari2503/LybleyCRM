@@ -9,11 +9,12 @@ import Services from '../service'
 
 export const HomePage = () => {
     return (
-        <div >
+        <div className='bg-light'>
         <Header />
  
             <Carousels />
             <Search />
+            
             <div className='container mt-5 mb-5'>
           
              <Services />

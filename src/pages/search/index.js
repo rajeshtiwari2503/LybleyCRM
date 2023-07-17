@@ -13,13 +13,13 @@ const Search = () => {
         </div>
       </div> */}
       <div className=''>
-        <div className={`${search ? style.searchBoxClick : style.searchBox}`}>
+        <div className={`${search ? style.searchBoxClick : style.searchBox} shadow`}>
           <input onChange={(e)=>setSearch(e.currentTarget.value)} name='search' value={search} type="text" placeholder="Search..." />
           {/* <button type="submit">Search</button> */}
           <SearchIcon className='me-2' fontSize='medium' />
 
         </div>
-        {search ? <div className={`${style.categoryList} `}>
+        {search ? <div className={`${style.categoryList} shadow`}>
           <div className='ps-2' > Fan</div>
           <div className='ps-2' > Cooler</div>
           <div className='ps-2' > Mixer</div>
