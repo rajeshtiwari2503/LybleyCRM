@@ -7,6 +7,7 @@ import Faqs from './faqs';
 import RecommendedServices from './recommendedServices';
 import { Footer } from '../common/Footer';
 import WhyChose from './whyChose';
+import Reviews from './reviews';
  
 
 const Repair = () => {
@@ -34,10 +35,11 @@ const Repair = () => {
  
         <Service />
      <WhyChose />
+     <Reviews />
         <div className="container mt-2">
         <Faqs />
-        <RecommendedServices />
         </div>
+        <RecommendedServices />
         <Footer />
  
     </div>

@@ -13,7 +13,7 @@ const Faqs = () => {
       <div className="container">
         <div className= "">
         <div className='mt-5' >
-            <h1 className='mt-3 fw-bold'>Frequently Asked Question (FAQs) </h1>
+            <h1 className='mt-3 text-center fw-bold'>Frequently Asked Question (FAQs) </h1>
             </div>
           <div className='mt-5'>
             <Accordion>
