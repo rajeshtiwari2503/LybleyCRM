@@ -8,3 +8,17 @@
     width: 1000px;
     position: relative;
 }
+
+/* recommended block */
+ .cardHead{
+    width: 95%;
+    background-color: #fff;
+    border:1px solid #b6fdf7;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    text-align: center;
+    padding: 1.5rem 1.0625rem 2.0625rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    /* display:flex;
+    justify-content: center; */
+ }

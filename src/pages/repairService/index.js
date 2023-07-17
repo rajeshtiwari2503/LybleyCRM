@@ -6,6 +6,7 @@ import Service from './service'
 import Faqs from './faqs';
 import RecommendedServices from './recommendedServices';
 import { Footer } from '../common/Footer';
+import WhyChose from './whyChose';
  
 
 const Repair = () => {
@@ -25,6 +26,7 @@ const Repair = () => {
                 </div>
             </div>
         </div>
+        <WhyChose />
         <Faqs />
         <RecommendedServices />
       
