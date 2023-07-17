@@ -4,9 +4,9 @@ import Search from '../search';
 
 const Blog = () => {
     return (
-        <div>
-            <div className='row'>
-                <div className='fw-bold fs-2 text-center'>Handpicked Blogs on Water Purifier</div>
+        <div className=''>
+            <div className='row w-100'>
+                <div className='col-12 fw-bold fs-2 text-center'>Handpicked Blogs on Water Purifier</div>
                 <div className='col-12 col-md-4 col-lg-4'>
                     <div>
                         <div >

@@ -6,7 +6,7 @@ const WhyChose = () => {
     <div className='bg-light py-3' style={{fontFamily:"san-serif"}}>
             <div className='text-center fw-bold' ><h2 className='fw-bold'>Why Chose Lybley</h2></div>
            
-                <div className='row mt-5 '>
+                <div className='row mt-5 w-100'>
                     <div   className='mb-3 col-6 col-md-4 col-lg-4' >
                      <div className='text-center'>
                     {/* <div>{item?.id}</div> */}
