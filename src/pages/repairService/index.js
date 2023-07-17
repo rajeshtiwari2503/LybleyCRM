@@ -1,5 +1,8 @@
 import React from 'react'
 import Header from '../common/Header'
+import Faqs from './faqs';
+import RecommendedServices from './recommendedServices';
+import { Footer } from '../common/Footer';
 
 const Repair = () => {
   return (
@@ -18,7 +21,11 @@ const Repair = () => {
                 </div>
             </div>
         </div>
+        <Faqs />
+        <RecommendedServices />
+      
         </div>
+        <Footer />
     </div>
   )
 }
