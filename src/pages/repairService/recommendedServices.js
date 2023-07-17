@@ -9,10 +9,10 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 const RecommendedServices = () => {
     return (
         <div className='mt-5 mb-5 bg-light'>
-            <div className='' >
-                <div style={{width:"95%"}} className='text-center'><h4 className='pt-3'>  Services</h4></div>
-                <div style={{width:"95%"}} className='text-center'><h2>Other Recommended Services</h2></div>
-                <div className='row'>
+            <div className='container' >
+                <div   className='text-center'><h4 className='pt-3'>  Services</h4></div>
+                <div   className='text-center'><h2>Other Recommended Services</h2></div>
+                <div className='row  '>
                     <div className='col-12 col-md-3 col-lg-3'>
                     </div>
                     <div className='col-12 col-md-6 col-lg-6  '>
