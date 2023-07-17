@@ -3,7 +3,7 @@ import React from 'react'
 const WhyChose = () => {
   return (
     <>
-    <div className='mt-5  ' style={{fontFamily:"san-serif"}}>
+    <div className='bg-light py-3' style={{fontFamily:"san-serif"}}>
             <div className='text-center fw-bold' ><h2 className='fw-bold'>Why Chose Lybley</h2></div>
            
                 <div className='row mt-5 '>
