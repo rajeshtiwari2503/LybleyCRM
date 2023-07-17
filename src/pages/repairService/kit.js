@@ -4,7 +4,7 @@ import React from 'react'
 const Kit = () => {
     return (
         <div className='container'>
-            <div className='row'>
+            <div className='row mb-5'>
                 <div className='fw-bold fs-2 text-center'>Repure Kit</div>
                 <div className='  fs-5 text-center'>Best in class water purifier filters and membranes to ensure clean and healthy water</div>
                 <div className='col-12 col-md-6 col-lg-6'>

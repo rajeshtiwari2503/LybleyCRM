@@ -32,6 +32,7 @@ const Repair = () => {
             </div>
           </div>
         </div>
+        </div>
  
 
       <Service />
@@ -40,8 +41,10 @@ const Repair = () => {
      <Reviews />
       <div className="container mt-2">
         <Faqs />
-        <RecommendedServices />
-        <Blog />
+      </div>
+      <RecommendedServices />
+      <div className="container mt-2">
+      <Blog />
       </div>
       <Footer />
 
