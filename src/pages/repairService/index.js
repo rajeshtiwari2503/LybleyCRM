@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../common/Header'
+import Service from './service'
 
 const Repair = () => {
   return (
@@ -19,6 +20,7 @@ const Repair = () => {
             </div>
         </div>
         </div>
+        <Service />
     </div>
   )
 }
