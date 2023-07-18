@@ -1,13 +1,13 @@
 import React from 'react'
  
-import { Footer } from '../common/Footer'
+import Footer  from '../common/Footer'
 import Header from '../common/Header'
 import Search from '../search'
 import Carousels from '../common/Carousel'
 import Services from '../service'
  
 
-export const HomePage = () => {
+ const HomePage = () => {
     return (
         <div className='bg-light'>
         <Header />
@@ -24,3 +24,4 @@ export const HomePage = () => {
         </div>
     )
 }
+export default HomePage;

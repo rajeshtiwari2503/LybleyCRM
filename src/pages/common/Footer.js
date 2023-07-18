@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import style from "../common.module.css"
 
-export const Footer = () => {
+ const Footer = () => {
   return (
     <>
     <footer className="w-100 py-4 flex-shrink fixed-bottom1 bg-dark mt-5"  >
@@ -67,3 +67,4 @@ export const Footer = () => {
         </>
   )
 }
+export default Footer;

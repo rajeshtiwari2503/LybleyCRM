@@ -5,7 +5,7 @@ import Service from './service'
 
 import Faqs from './faqs';
 import RecommendedServices from './recommendedServices';
-import { Footer } from '../common/Footer';
+import  Footer  from '../common/Footer';
 import WhyChose from './whyChose';
  
 import Reviews from './reviews';
