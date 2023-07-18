@@ -1,6 +1,10 @@
 .wd{
     height: 1000px;
 }
+.planWd{
+    height: 1000px;
+
+}
 .bg_black{
     background-color: black;
     height: 400px;
@@ -42,6 +46,10 @@
 @media only screen and (max-width: 800px) {
     .wd{
         height: 1520px;
+    }
+    .planWd{
+        height: 1970px;
+
     }
     .bg_black{
         background-color: black;
