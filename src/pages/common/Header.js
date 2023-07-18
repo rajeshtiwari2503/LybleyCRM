@@ -16,7 +16,7 @@ import Link from 'next/link';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
  
 
-const pages = [{name:'Home Appliances Repaire',link:"/homeAppliancesRepaire"}, {name:'Home Care Plan',link:'/homeCarePlan'}, {name:'B2B',link:'/B2B'}];
+const pages = [{name:'Home Appliances Repair',link:"/homeAppliancesRepair"}, {name:'Home Care Plan',link:'/homeCarePlan'}, {name:'B2B',link:'/B2B'}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
  
 function Header() {
