@@ -1,4 +1,4 @@
-import React from 'react'
+//import React from 'react'
 import Header from '../common/Header'
 
 import Service from './service'
@@ -9,6 +9,7 @@ import  Footer  from '../common/Footer';
 import WhyChose from './whyChose';
  
 import Reviews from './reviews';
+import React, { useRef } from 'react';
 
 import Blog from './blog';
 import Kit from './kit';
@@ -16,6 +17,14 @@ import Kit from './kit';
  
 
 const Repair = () => {
+  
+
+  const scrollRef = useRef(null);
+
+  const handleScrollClick = () => {
+    scrollRef.current.scrollIntoView({ behaviour: 'smooth' });
+  };
+
   return (
     <div>
       <Header />
@@ -28,7 +37,7 @@ const Repair = () => {
             <div >
               <h1 className='fw-bold my-3'>Washing Machine Repair Service</h1>
               <h4 className='text-muted my-3'>Sit back, relax and let us take care of your refrigerator repairs</h4>
-              <button className='fw-bold my-3   btn btn-warning rounded-pill px-5 py-2'><h5 className='m-0 fw-bold px-2 py-1'>GET STARTED</h5></button>
+              <button ref={scrollRef} onClick={handleScrollClick} className='fw-bold my-3   btn btn-warning rounded-pill px-5 py-2'><h5 className='m-0 fw-bold px-2 py-1'>GET STARTED</h5></button>
             </div>
           </div>
         </div>

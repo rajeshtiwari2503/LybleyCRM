@@ -5,7 +5,7 @@ import style from "../common.module.css"
  const Footer = () => {
   return (
     <>
-    <footer className="w-100 py-4 flex-shrink fixed-bottom1 bg-dark mt-5"  >
+    <footer className="w-100 py-4 flex-shrink fixed-bottom1 bg-dark"  >
                 <div className="container">
                     {/* <div className="row gy-4 gx-5"> */}
                     <div className="row gy-4    ">
