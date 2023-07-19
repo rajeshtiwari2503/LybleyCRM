@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.min.js';
 import Carousel from 'react-bootstrap/Carousel'  
+import style from "./common.module.css"
 
 const Carousels = () => {
     // useEffect(() => {
@@ -43,25 +44,25 @@ const Carousels = () => {
 
                          <div >  
                          <Carousel>  
-                         <Carousel.Item >  
-                         <img height="350px" 
-                         className="d-block w-100"  
-                        src={'https://www.tjservice.in/wp-content/uploads/2022/06/slide1.jpg'}  />  
+                         <Carousel.Item > 
+                         <img 
+                         className={`${style.imgBannerHeight} d-block w-100}`}
+                        src={'https://www.tjservice.in/wp-content/uploads/2022/06/slide1.jpg'}  />
                            <Carousel.Caption>  
                              {/* <h3>First Demo </h3>   */}
                                  </Carousel.Caption>  
                                  </Carousel.Item  >  
                                  <Carousel.Item>  
-                                 <img height="350px"  
-                                   className="d-block w-100"  
+                                 <img 
+                                   className={`${style.imgBannerHeight} d-block w-100}`} 
                                     src={'https://www.dghelp.com/wp-content/uploads/2021/08/Samsung_2000x600-HA-banners-150821-.jpg'}    />  
                                        <Carousel.Caption>  
                                    {/* <h3>Second Demo</h3>   */}
                                       </Carousel.Caption>  
                                          </Carousel.Item>  
                                        <Carousel.Item>  
-                                       <img height="350px"
-                                        className="d-block w-100"  
+                                       <img 
+                                        className={`${style.imgBannerHeight} d-block w-100}`}
                                          src={'https://scontent.fdel1-6.fna.fbcdn.net/v/t31.18172-8/28828537_889583511166302_8995353857013764602_o.jpg?_nc_cat=106&ccb=1-7&_nc_sid=e3f864&_nc_ohc=aanfZaw5upUAX-KBUYV&_nc_ht=scontent.fdel1-6.fna&oh=00_AfD9qrGP5Xkn58ndzEuAFP-8JuQwhCffndabOwJrp_Ucfw&oe=64D88891'}   />  
                                         <Carousel.Caption>  
                                           {/* <h3>Third Demo</h3>   */}
