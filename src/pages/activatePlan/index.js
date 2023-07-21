@@ -7,7 +7,7 @@ function ActivatePlan() {
   return (
     <div>
       <Header />
-      <div className="row w-100 mt-5">
+      <div className="row w-100 mt-5 mb-5">
         <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
           <div className='text-center p-5'>
           <img src="https://d2js0267gg4oqb.cloudfront.net/static/images/activation/group-10.png?w=256&q=75" alt="" />
