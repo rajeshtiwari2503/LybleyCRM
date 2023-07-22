@@ -5,10 +5,10 @@ const WhyChose = () => {
     <>
     <div className='bg-light py-3' style={{fontFamily:"san-serif"}}>
             <div className='text-center fw-bold' ><h2 className='fw-bold'>Why Chose Lybley</h2></div>
-           
-                <div className='row mt-5 w-100'>
+                     <div className='container'>
+                <div className='row  mt-5'>
                     <div   className='mb-3 col-6 col-md-4 col-lg-4' >
-                     <div className='text-center'>
+                     <div className='text-center shadow ps-3 pb-5 pt-5 pe-3'>
                     {/* <div>{item?.id}</div> */}
                     <img className='card-img-top rounded-circle'  src="https://d2js0267gg4oqb.cloudfront.net/static/images/features/our_promise_banner/icons-qualified-engineers.svg?w=1920&q=75" alt='service' style={{height:"110px",width:"150px"}} />
                     <div className='text-center fw-bold fs-5  mt-2'>Qualified Engineers</div>
@@ -16,7 +16,7 @@ const WhyChose = () => {
                   </div> 
                   </div>
                   <div   className='mb-3 col-6 col-md-4 col-lg-4' >
-                     <div className='text-center'>
+                     <div className='text-center shadow ps-3 pb-5 pt-5 pe-3'>
                     {/* <div>{item?.id}</div> */}
                     <img className='card-img-top rounded-circle'  src="https://d2js0267gg4oqb.cloudfront.net/static/images/features/our_promise_banner/icons-high-quality-repair.svg?w=1920&q=75" alt='service' style={{height:"110px",width:"150px"}} />
                     <div className='text-center fw-bold fs-5 mt-2'>High Quality Repairs</div>
@@ -24,7 +24,7 @@ const WhyChose = () => {
                   </div> 
                   </div>
                   <div   className='mb-3 col-6 col-md-4 col-lg-4' >
-                     <div className='text-center'>
+                     <div className='text-center shadow ps-3 pb-5 pt-5 pe-3'>
                     {/* <div>{item?.id}</div> */}
                     <img className='card-img-top rounded-circle'  src="https://d2js0267gg4oqb.cloudfront.net/static/images/features/our_promise_banner/service-expertise.svg?w=1920&q=75" alt='service' style={{height:"110px",width:"150px"}} />
                     <div className='text-center fw-bold fs-5  mt-2'>Service Expertise</div>
@@ -33,7 +33,7 @@ const WhyChose = () => {
                   </div>
              
                 </div>
-             
+                </div>
         </div></>
   )
 }

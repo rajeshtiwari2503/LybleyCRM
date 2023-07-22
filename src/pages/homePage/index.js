@@ -23,7 +23,7 @@ const HomePage = () => {
 
                 <Services />
             </div>
-            <div className="mt-4">
+            <div className=" mt-4">
                 <WhyChose />
             </div>
             <div className='py-2 '>
