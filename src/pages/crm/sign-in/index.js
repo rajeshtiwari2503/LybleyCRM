@@ -1,6 +1,6 @@
 const SignIn = () => {
     return (
-      <div>index</div>
+      <div className="text-center fs-5">BRAND</div>
     )
   }
   

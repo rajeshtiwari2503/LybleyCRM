@@ -2,7 +2,8 @@ import React from 'react'
 
 const SignUp = () => {
   return (
-    <div>index</div>
+    <div className="text-center fs-5">SERVICE</div>
+
   )
 }
 
