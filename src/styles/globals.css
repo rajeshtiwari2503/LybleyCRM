@@ -142,6 +142,7 @@ a:focus {
 
 #wrapper.toggled #sidebar-wrapper {
   width: 250px;
+  margin-right: 200px;
 }
 
 .sidebar-brand {
@@ -228,7 +229,7 @@ a:focus {
   }
   
   #wrapper.toggled {
-    padding-left: 60px;
+    padding-left: 40px;
   }
 
   #sidebar-wrapper {
@@ -236,7 +237,8 @@ a:focus {
   }
   
   #wrapper.toggled #sidebar-wrapper {
-    width: 60px;
+    width: 50px;
+
   }
   
   #wrapper.toggled #navbar-wrapper {
@@ -254,7 +256,7 @@ a:focus {
   }
 
   #wrapper.toggled {
-    padding-left: 60px;
+    padding-left: 50px;
   }
 
   #content-wrapper {
