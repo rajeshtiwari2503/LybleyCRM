@@ -13,7 +13,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const HomePage = () => {
     return (
-        <div className='' style={{ backgroundColor: "#f2f2f2" }}>
+        <div className='' style={{ backgroundColor: "#f2f2f2",fontFamily:"san-serif" }}>
             <Header />
 
             <Carousels />
