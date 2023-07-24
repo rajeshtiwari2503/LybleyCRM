@@ -146,7 +146,28 @@ a:focus {
   background: #222;
   transition: all 0.5s ease;
 }
+  /* 
+  padding-left: 0; */
+  /* #wrapper {
+  transition: all 0.5s ease;
+  position: relative;
+}
 
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 90%;
+  margin-top: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  margin-left: -220px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #222;
+  transition: all 0.5s ease;
+} */
 #wrapper.toggled #sidebar-wrapper {
   width: 250px;
   margin-right: 200px;
@@ -158,6 +179,7 @@ a:focus {
   width: 250px;
   text-align: center;
   padding: 20px 0;
+  border-bottom: 2px solid white;
 }
 .sidebar-brand h2 {
   margin: 0;
@@ -185,7 +207,10 @@ a:focus {
   font-weight: 600;
   font-size: 18px;
 }
-.sidebar-nav > li > a:hover,
+.sidebar-nav > li > a:hover{
+   text-decoration: none;
+  color: #fff;
+}
 .sidebar-nav > li.active > a {
   text-decoration: none;
   color: #fff;
