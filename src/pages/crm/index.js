@@ -31,13 +31,13 @@ const CRM = () => {
                         
                     </div>
                     <ul className="sidebar-nav">
-                        <li className={view === "" && "active"}>
+                        <li className={view === "" ? "active" : ""}>
                             <a href="#" className='d-flex align-items-center ps-3' onClick={() => handlePage("")}>
                                 <DashboardIcon />
                                 <span className=''> Dashboard</span>
                             </a>
                         </li>
-                        <li className={view === "Brand" && "active"}>
+                        <li className={view === "Brand" ? "active" : ""}>
                             <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Brand")}>
                                 <AttributionIcon />
                                 <span className=''>Brand</span>

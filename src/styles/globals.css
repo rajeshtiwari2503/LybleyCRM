@@ -107,7 +107,9 @@ a {
 } */
 
 /* navbar toggler */
-
+.iconSize{
+  font-size: 25px;
+}
 .navbar-toggler:focus{
   outline: none !important;
 
