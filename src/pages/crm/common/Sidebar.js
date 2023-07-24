@@ -1,7 +1,5 @@
 import {React,useState} from 'react'
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import SignIn from '../sign-in';
-import SignUp from '../sign-up';
 import CRMHeader from './Header';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 import AttributionIcon from '@mui/icons-material/Attribution';
@@ -10,6 +8,14 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import PersonIcon from '@mui/icons-material/Person';
+import Brand from '../brand';
+import Service from '../service';
+import Customer from '../customer';
+import Inventry from '../inventry';
+import Account from '../account';
+import Setting from '../setting';
+import Support from '../support';
+import Dashboard from '../dashboard';
 
 const Sidebar = () => {
     const [view, setView] = useState("");
@@ -42,18 +48,19 @@ const Sidebar = () => {
                                 <span className=''>Brand</span>
                             </a>
                         </li>
-                        <li className={view === "Customers" && "active"}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Customers")}>
+                        <li className={view === "Customer" && "active"}>
+                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Customer")}>
                                 <PersonIcon />
-                                <span className=''>Customers</span>
+                                <span className=''>Customer</span>
                             </a>
                         </li>
-                        <li className={view === "Service" && "active"}>
+                        {/* <li className={view === "Service" && "active"}>
                             <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Service")}>
                                 <MiscellaneousServicesIcon />
                                 <span className=''>Service</span>
                             </a>
-                        </li><li className={view === "Service" && "active"}>
+                        </li> */}
+                        <li className={view === "Service" && "active"}>
                             <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Service")}>
                                 <MiscellaneousServicesIcon />
                                 <span className=''>Service</span>
@@ -105,8 +112,8 @@ const Sidebar = () => {
                 <section id="content-wrapper">
                     <div className="row">
                         <div className="col-lg-12">
-                            {view === "Brand" ? <SignIn /> : view === "Service" ?
-                                <SignUp /> : ""}
+                            {view === "" ? <Dashboard /> :view === "Brand" ? <Brand /> : view === "Service" ?
+                                <Service /> : view==="Customer"?<Customer />:view==="Inventry"?<Inventry />:view==="Accounts"?<Account />:view==="Setting"?<Setting />:view==="Support"?<Support />: ""}
                         </div>
                     </div>
                 </section>
