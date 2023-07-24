@@ -24,19 +24,19 @@ const CRM = () => {
                         <h2>LY3LEY</h2>
                     </div>
                     <ul className="sidebar-nav">
-                        <li className={view === "" && "active"}>
+                        <li className={view === "" ? "active" : ""}>
                             <a href="#" className='d-flex align-items-center ps-3' onClick={() => handlePage("")}>
                                 <DashboardIcon />
                                 <span className=''> Home</span>
                             </a>
                         </li>
-                        <li className={view === "Brand" && "active"}>
+                        <li className={view === "Brand" ? "active" : ""}>
                             <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Brand")}>
                                 <DashboardIcon />
                                 <span className=''>Brand</span>
                             </a>
                         </li>
-                        <li className={view === "Service" && "active"}>
+                        <li className={view === "Service" ? "active" : ""}>
                             <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Service")}>
                                 <DashboardIcon />
                                 <span className=''>Service</span>
