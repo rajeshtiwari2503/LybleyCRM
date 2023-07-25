@@ -115,7 +115,7 @@ a {
 
 }
 body {
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
   position: relative;
   min-height: 100%;
 }
