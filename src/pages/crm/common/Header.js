@@ -7,7 +7,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const CRMHeader = () => {
   return (
     <div>
-      <div className="d-flex align-items-center p-2">
+      <div className="d-flex align-items-center">
         <div className="px-2 ">
       <InfoIcon fontSize='large' />
       </div>
