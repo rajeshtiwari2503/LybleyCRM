@@ -8,14 +8,15 @@ import Faqs from '../repairService/faqs';
 import RecommendedServices from '../repairService/recommendedServices';
 import Blog from '../repairService/blog';
 import Plan from './plan';
+import {motion} from "framer-motion"
 
 function HomeApplincesRepair() {
   return (
     <>
       <Header />
-      <div class="container mt-2">
-        <div class="row">
-          <div class="col-6 d-none d-md-block">
+      <motion.div className="container mt-2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <div className="row">
+          <div className="col-6 d-none d-md-block">
             <img src="https://images.ctfassets.net/16nm6vz43ids/IU1pnLyAMxTMrCxiSxHcd/e3c0752402bc6b86508dd2f079ac8652/image-repair.png" alt="" className='card-img-top' />
           </div>
           <div className="col-12 col-md-6 d-flex align-items-center justify-content-center">
@@ -26,7 +27,7 @@ function HomeApplincesRepair() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
 
       <Plan />
