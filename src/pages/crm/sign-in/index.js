@@ -13,6 +13,8 @@ import { Container } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.css";
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Footer from '../../common/Footer';
+import Header from '../../common/Header';
 
 const SignIn = () => {
 const router=useRouter()
@@ -28,6 +30,8 @@ const router=useRouter()
   };
 
   return (
+    <>
+    <Header />
     <div className='d-flex m-0 p-0  vh-100 align-items-center'   >
     <Container  component="main" maxWidth="lg">
       <Box
@@ -134,6 +138,8 @@ const router=useRouter()
     </Container>
  
     </div>
+    <Footer />
+    </>
   )
 }
 
