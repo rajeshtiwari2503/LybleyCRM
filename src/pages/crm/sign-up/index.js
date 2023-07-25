@@ -32,7 +32,7 @@ const router=useRouter()
   return (
     <>
     <Header />
-    <div className='d-flex m-0 p-0  vh-100 align-items-center'   >
+    <div className='d-flex m-0 p-0   align-items-center'   >
     <Container  component="main" maxWidth="lg">
       <Box
         sx={{
@@ -67,6 +67,8 @@ const router=useRouter()
             component={Paper}
             elevation={6}
             square
+             mt={5}
+             mb={5}
           >
             <Box
               sx={{
