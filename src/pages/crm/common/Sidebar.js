@@ -16,6 +16,7 @@ import Account from '../account';
 import Setting from '../setting';
 import Support from '../support';
 import Dashboard from '../dashboard';
+import Complaint from '../compalaint';
 
 const Sidebar = () => {
     const [view, setView] = useState("");
@@ -28,14 +29,14 @@ const Sidebar = () => {
     }
     return (
         <div>
-            <div id="wrapper">
+            <div clas id="wrapper">
 
-                <aside id="sidebar-wrapper" >
+                <aside  id="sidebar-wrapper" >
                     <div className="sidebar-brand">
                         <h2>LY3LEY</h2>
 
                     </div>
-                    <ul className="sidebar-nav">
+                    <ul className="sidebar-nav ">
                         <li className={view === "" ? "active" : ""}>
                             <a href="#" className='d-flex align-items-center ps-3' onClick={() => handlePage("")}>
                                 <DashboardIcon />
@@ -54,12 +55,12 @@ const Sidebar = () => {
                                 <span className=''>Customer</span>
                             </a>
                         </li>
-                        {/* <li className={view === "Service" && "active"}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Service")}>
+                        <li className={view === "Complaint" && "active"}>
+                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Complaint")}>
                                 <MiscellaneousServicesIcon />
-                                <span className=''>Service</span>
+                                <span className=''>Complaint</span>
                             </a>
-                        </li> */}
+                        </li>
                         <li className={view === "Service" && "active"}>
                             <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Service")}>
                                 <MiscellaneousServicesIcon />
@@ -92,7 +93,7 @@ const Sidebar = () => {
                 <div id="navbar-wrapper">
                     <nav className="navbar navbar-inverse">
                         <div className="container-fluid">
-                            <div style={{ height: "55px" }} className='w-100 align-items-center ps-3 pe-3 d-flex justify-content-between'>
+                            <div style={{ height: "55px",backgroundColor:"#15939a" }} className='w-100 align-items-center ps-3 pe-3 d-flex justify-content-between'>
                                 <div>
                                     <button className="border border-2 rounded-2" type="button" onClick={handleSideBar}
                                     >
@@ -113,7 +114,7 @@ const Sidebar = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             {view === "" ? <Dashboard /> :view === "Brand" ? <Brand /> : view === "Service" ?
-                                <Service /> : view==="Customer"?<Customer />:view==="Inventry"?<Inventry />:view==="Accounts"?<Account />:view==="Setting"?<Setting />:view==="Support"?<Support />: ""}
+                                <Service /> :view === "Complaint" ? <Complaint /> : view==="Customer"?<Customer />:view==="Inventry"?<Inventry />:view==="Accounts"?<Account />:view==="Setting"?<Setting />:view==="Support"?<Support />: ""}
                         </div>
                     </div>
                 </section>

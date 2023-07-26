@@ -1,8 +1,11 @@
 import React from 'react'
+import BrandPage from './Brand'
 
 const Brand = () => {
   return (
-    <div>Brand</div>
+    <div>
+      <BrandPage />
+    </div>
   )
 }
 
