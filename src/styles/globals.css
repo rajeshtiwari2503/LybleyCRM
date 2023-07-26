@@ -107,6 +107,15 @@ a {
 } */
 
 /* navbar toggler */
+.dashhover{
+  background-color:#E6E6FA !important;
+  transition: transform .5s;
+}
+.dashhover:hover{
+  cursor: pointer !important;
+  background-color:#f5881f !important;
+ transform: scale(1.1);
+}
 .iconSize{
   font-size: 25px;
 }
@@ -353,7 +362,8 @@ a:focus {
   }
 
   #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 51px;
+    /* width: 250px; */
   }
   #wrapper.toggled #navbar-wrapper {
     position: absolute;
@@ -370,7 +380,8 @@ a:focus {
   }
 
   #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 52px;
+    /* padding-left: 250px; */
   }
 
   #content-wrapper {
