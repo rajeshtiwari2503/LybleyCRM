@@ -16,7 +16,8 @@ import Account from '../account';
 import Setting from '../setting';
 import Support from '../support';
 import Dashboard from '../dashboard';
-import Complaint from '../compalaint';
+import Complaint from '../complaint';
+import Link from 'next/link';
 
 const Sidebar = () => {
     const [view, setView] = useState("");
@@ -37,55 +38,56 @@ const Sidebar = () => {
 
                     </div>
                     <ul className="sidebar-nav ">
-                        <li className={view === "" ? "active" : ""}>
-                            <a href="#" className='d-flex align-items-center ps-3' onClick={() => handlePage("")}>
+                        <li >
+                        <div className="d-flex anchor align-items-center ps-3">
                                 <DashboardIcon />
-                                <span className=''> Dashboard</span>
-                            </a>
+                                <Link href="/crm/dashboard" className='text-decoration-none sidenav-link'>Dashboard</Link>
+
+                                </div>
                         </li>
-                        <li className={view === "Brand" ? "active" : ""}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Brand")}>
+                        <li>
+                            <div className="d-flex anchor align-items-center ps-3">
                                 <AttributionIcon />
-                                <span className=''>Brand</span>
-                            </a>
+                                <Link href="/crm/brand" className='text-decoration-none sidenav-link'>Brand</Link>
+                            </div>
                         </li>
-                        <li className={view === "Customer" && "active"}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Customer")}>
+                        <li>
+                        <div className="d-flex anchor align-items-center ps-3">
                                 <PersonIcon />
-                                <span className=''>Customer</span>
-                            </a>
+                               <Link href="/crm/customer" className='text-decoration-none sidenav-link'> Customer</Link>
+                            </div>
                         </li>
-                        <li className={view === "Complaint" && "active"}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Complaint")}>
+                        <li>
+                        <div className="d-flex anchor align-items-center ps-3">
                                 <MiscellaneousServicesIcon />
-                                <span className=''>Complaint</span>
-                            </a>
+                                <Link href="/crm/complaint" className='text-decoration-none sidenav-link'>Complaint</Link>
+                            </div>
                         </li>
-                        <li className={view === "Service" && "active"}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Service")}>
+                        <li>
+                        <div className="d-flex anchor align-items-center ps-3">
                                 <MiscellaneousServicesIcon />
-                                <span className=''>Service</span>
-                            </a>
-                        </li><li className={view === "Inventry" && "active"}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Inventry")}>
+                                <Link href="/crm/service" className='text-decoration-none sidenav-link'>Service</Link>
+                            </div>
+                        </li><li >
+                        <div className="d-flex anchor align-items-center ps-3">
                                 <InventoryIcon />
-                                <span className=''>Inventry</span>
-                            </a>
-                        </li><li className={view === "Accounts" && "active"}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Accounts")}>
+                                <Link href="/crm/inventry" className='text-decoration-none sidenav-link'>Inventory</Link>
+                            </div>
+                        </li><li >
+                        <div className="d-flex anchor align-items-center ps-3">
                                 <AccountCircleIcon />
-                                <span className=''>Accounts</span>
-                            </a>
-                        </li><li className={view === "Setting" && "active"}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Setting")}>
+                                <Link href="/crm/account" className='text-decoration-none sidenav-link'>Accounts</Link>
+                            </div>
+                        </li><li >
+                        <div className="d-flex anchor align-items-center ps-3">
                                 <SettingsIcon />
-                                <span className=''>Setting</span>
-                            </a>
-                        </li><li className={view === "Support" && "active"}>
-                            <a href="#" className="d-flex align-items-center ps-3" onClick={() => handlePage("Support")}>
+                                <Link href="/crm/setting" className='text-decoration-none sidenav-link'>Settings</Link>
+                            </div>
+                        </li><li>
+                        <div className="d-flex anchor align-items-center ps-3">
                                 <SupportIcon />
-                                <span className=''>Support</span>
-                            </a>
+                                <Link href="/crm/support" className='text-decoration-none sidenav-link'>Supports </Link>
+                            </div>
                         </li>
                     </ul>
                 </aside>
@@ -110,14 +112,14 @@ const Sidebar = () => {
         </div> */}
                     </nav>
                 </div>
-                <section id="content-wrapper">
+                {/* <section id="content-wrapper">
                     <div className="row">
                         <div className="col-lg-12">
                             {view === "" ? <Dashboard /> :view === "Brand" ? <Brand /> : view === "Service" ?
                                 <Service /> :view === "Complaint" ? <Complaint /> : view==="Customer"?<Customer />:view==="Inventry"?<Inventry />:view==="Accounts"?<Account />:view==="Setting"?<Setting />:view==="Support"?<Support />: ""}
                         </div>
                     </div>
-                </section>
+                </section> */}
             </div>
 
         </div>
