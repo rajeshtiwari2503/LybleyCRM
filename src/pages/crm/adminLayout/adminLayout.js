@@ -11,9 +11,9 @@ const AdminLayout = ({ children }) => {
       {showSidebar && <Sidebar />} {/* Render the sidebar if showSidebar is true */}
       {showSidebar ?
         <div id="wrapper1">
-          <section id="content-wrapper">
-            <div className="row">
-              <div className="col-lg-12">
+          <section className="bg-light" id="content-wrapper">
+            <div className="row ">
+              <div className="col-lg-12 px-5">
                 {children}
               </div>
             </div>

@@ -12,8 +12,8 @@ import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.css";
 import { useRouter } from 'next/router';
-import Footer from '../../common/Footer';
-import Header from '../../common/Header';
+import Footer from '../common/Footer';
+import Header from '../common/Header';
 import Link from 'next/link';
 
 const SignUp = () => {
@@ -26,7 +26,7 @@ const router=useRouter()
       password: data.get("password"),
     });
     localStorage.setItem("user1","ABC")
-    router.push("/crm")
+    router.push("/sign-in")
   };
 
   return (
@@ -208,7 +208,7 @@ const router=useRouter()
                     </Link>
                   </Grid> */}
                   <Grid item>
-                    <Link href="/crm/sign-in" variant="body2">
+                    <Link href="/sign-in" variant="body2">
                       {"Don't have an account? Sign In"}
                     </Link>
                   </Grid>

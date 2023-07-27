@@ -121,7 +121,7 @@ const BrandPage = () => {
                     <div className="card py-4 shadow dashhover "  >
                         <div> LG</div>
                         <div className=' mt-4'>
-                            <Image height={60} width={60} alt='brand' src="https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI" />
+                            <Image height={50} width={50} alt='brand' src="https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI" />
                         </div>
                     </div>
                 </div>
