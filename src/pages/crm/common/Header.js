@@ -27,13 +27,13 @@ const CRMHeader = () => {
     <div>
       <div className="d-flex align-items-center">
         <div className="px-2 ">
-      <InfoIcon fontSize='large' />
+      <InfoIcon fontSize='large' style={{cursor:"pointer"}} />
       </div>
       <div className="px-2">
-      <NotificationsIcon fontSize='large' />
+      <NotificationsIcon fontSize='large' style={{cursor:"pointer"}} />
       </div>
       <div className="px-2">
-      <AccountCircleIcon fontSize='large' onClick={handleClick} />
+      <AccountCircleIcon fontSize='large' style={{cursor:"pointer"}} onClick={handleClick} />
       {/* <div className="d-flex align-items-center text-center">
                 <Button
                   id="basic-button"
@@ -62,7 +62,7 @@ const CRMHeader = () => {
 
       </div>
       <div className="px-2">
-      <SettingsIcon fontSize='large' />
+      <SettingsIcon fontSize='large' style={{cursor:"pointer"}} />
       </div>
       </div>
       </div>
