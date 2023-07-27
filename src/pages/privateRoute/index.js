@@ -14,7 +14,7 @@ const [user,setUser]=useState("")
         const user=localStorage.getItem("user1");
         setUser(user);
         if (user!=="ABC") {
-            router.push('/crm/sign-in'); // Redirect to the login page if the user is not authenticated.
+            router.push('/sign-in'); // Redirect to the login page if the user is not authenticated.
             localStorage.removeItem("user1");
           }
       }

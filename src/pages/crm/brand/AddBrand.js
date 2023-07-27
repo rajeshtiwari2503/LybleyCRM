@@ -59,7 +59,7 @@ const AddBrand = () => {
 
     }
     return (
-        <div className='container'>
+        <div className='bg-light p-0 m-0'>
             <DashboardHeader pagetitle={"Add Brand "}
                 
                 />

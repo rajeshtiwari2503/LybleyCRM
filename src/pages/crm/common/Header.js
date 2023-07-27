@@ -21,7 +21,7 @@ const CRMHeader = () => {
   };
   const handleLogout=()=>{
     localStorage.removeItem("user1");
-    router.push("/crm");
+    router.push("/sign-in");
   }
   return (
     <div>
