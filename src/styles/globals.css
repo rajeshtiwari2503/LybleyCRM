@@ -129,11 +129,11 @@ body {
   min-height: 100%;
 }
 
-a {
+.anchor {
   transition: background 0.2s, color 0.2s;
 }
-a:hover,
-a:focus {
+.anchor:hover,
+.anchor:focus {
   text-decoration: none;
 }
 
@@ -209,24 +209,31 @@ a:focus {
   text-indent: 10px;
   line-height: 42px;
 }
-.sidebar-nav > li a {
+.sidenav-link{
+  color: #757575;
+}
+.sidenav-link:hover{
+  text-decoration: none;
+  color: #fff;
+}
+.sidebar-nav > li .anchor {
   display: block;
   text-decoration: none;
   color: #757575;
   font-weight: 600;
   font-size: 18px;
 }
-.sidebar-nav > li > a:hover{
+.sidebar-nav > li > .anchor:hover{
    text-decoration: none;
   color: #fff;
 }
-.sidebar-nav > li.active > a {
+.sidebar-nav > li.active > .anchor {
   text-decoration: none;
   color: #fff;
   /* background: #F8BE12; */
   background: #f5881f;
 }
-.sidebar-nav > li > a i.fa {
+.sidebar-nav > li > .anchor i.fa {
   font-size: 24px;
   width: 60px;
 }
@@ -247,10 +254,10 @@ a:focus {
   margin-bottom: 0;
   border-radius: 0;
 }
-#navbar-wrapper .navbar a {
+#navbar-wrapper .navbar .anchor {
   color: #757575;
 }
-#navbar-wrapper .navbar a:hover {
+#navbar-wrapper .navbar .anchor:hover {
   color: #F8BE12;
 }
 

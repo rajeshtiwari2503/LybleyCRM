@@ -8,7 +8,7 @@ const CRM = () => {
    
     return (
         <div>
-           <Sidebar />
+           {/* <Sidebar /> */}
         </div>
     )
 }
