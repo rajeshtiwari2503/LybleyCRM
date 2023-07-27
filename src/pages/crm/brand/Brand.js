@@ -61,7 +61,7 @@ const BrandPage = () => {
 
     }
     return (
-        <div className='container'>
+        <div className='container11'>
             <DashboardHeader pagetitle={"Brand Dashboard"}
                 modalbutton={() => {
                     return <div className="col-auto d-flex w-sm-100">

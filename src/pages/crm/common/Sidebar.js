@@ -8,26 +8,18 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import PersonIcon from '@mui/icons-material/Person';
-import Brand from '../brand';
-import Service from '../service';
-import Customer from '../customer';
-import Inventry from '../inventry';
-import Account from '../account';
-import Setting from '../setting';
-import Support from '../support';
-import Dashboard from '../dashboard';
-import Complaint from '../complaint';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Sidebar = () => {
-    const [view, setView] = useState("");
-    const handlePage = (val) => {
-        setView(val);
-    }
+    const router=useRouter();
     const handleSideBar = () => {
         let sideBar = document.getElementById("wrapper");
+        let sideBar1 = document.getElementById("wrapper1");
         sideBar.classList.toggle('toggled');
+        sideBar1.classList.toggle('toggled');
     }
+    const currentPath=router.pathname;
     return (
         <div>
             <div clas id="wrapper">
@@ -38,56 +30,58 @@ const Sidebar = () => {
 
                     </div>
                     <ul className="sidebar-nav ">
-                        <li >
-                        <div className="d-flex anchor align-items-center ps-3">
+                        <li className={currentPath==="/crm/dashboard" ? "active" : ""}>
+                       
+                        <Link href="/crm/dashboard" className='d-flex anchor align-items-center ps-3 text-decoration-none'>
                                 <DashboardIcon />
-                                <Link href="/crm/dashboard" className='text-decoration-none sidenav-link'>Dashboard</Link>
+                             Dashboard
+                               </Link>
 
-                                </div>
                         </li>
-                        <li>
-                            <div className="d-flex anchor align-items-center ps-3">
+                        <li className={currentPath==="/crm/brand" ? "active" : ""}>
+                        <Link href="/crm/brand" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <AttributionIcon />
-                                <Link href="/crm/brand" className='text-decoration-none sidenav-link'>Brand</Link>
-                            </div>
+                                Brand
+                                </Link>
+                            
                         </li>
-                        <li>
-                        <div className="d-flex anchor align-items-center ps-3">
+                        <li className={currentPath==="/crm/customer" ? "active" : ""}>
+                        <Link href="/crm/customer" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <PersonIcon />
-                               <Link href="/crm/customer" className='text-decoration-none sidenav-link'> Customer</Link>
-                            </div>
+                               Customer</Link>
+                            
                         </li>
-                        <li>
-                        <div className="d-flex anchor align-items-center ps-3">
+                        <li className={currentPath==="/crm/complaint" ? "active" : ""}>
+                        <Link href="/crm/complaint" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <MiscellaneousServicesIcon />
-                                <Link href="/crm/complaint" className='text-decoration-none sidenav-link'>Complaint</Link>
-                            </div>
+                                Complaint</Link>
+                        
                         </li>
-                        <li>
-                        <div className="d-flex anchor align-items-center ps-3">
+                        <li className={currentPath==="/crm/service" ? "active" : ""}>
+                        <Link href="/crm/service" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <MiscellaneousServicesIcon />
-                                <Link href="/crm/service" className='text-decoration-none sidenav-link'>Service</Link>
-                            </div>
-                        </li><li >
-                        <div className="d-flex anchor align-items-center ps-3">
+                        Service</Link>
+                        
+                        </li><li className={currentPath==="/crm/inventry" ? "active" : ""}>
+                        <Link href="/crm/inventry" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <InventoryIcon />
-                                <Link href="/crm/inventry" className='text-decoration-none sidenav-link'>Inventory</Link>
-                            </div>
-                        </li><li >
-                        <div className="d-flex anchor align-items-center ps-3">
+                            Inventory</Link>
+                        
+                        </li><li className={currentPath==="/crm/account" ? "active" : ""}>
+                        <Link href="/crm/account" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <AccountCircleIcon />
-                                <Link href="/crm/account" className='text-decoration-none sidenav-link'>Accounts</Link>
-                            </div>
-                        </li><li >
-                        <div className="d-flex anchor align-items-center ps-3">
+                        Accounts</Link>
+                        
+                        </li><li className={currentPath==="/crm/setting" ? "active" : ""}>
+                        <Link href="/crm/setting" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <SettingsIcon />
-                                <Link href="/crm/setting" className='text-decoration-none sidenav-link'>Settings</Link>
-                            </div>
-                        </li><li>
-                        <div className="d-flex anchor align-items-center ps-3">
+                        Settings</Link>
+                        
+                        </li><li className={currentPath==="/crm/support" ? "active" : ""}>
+                        <Link href="/crm/support" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <SupportIcon />
-                                <Link href="/crm/support" className='text-decoration-none sidenav-link'>Supports </Link>
-                            </div>
+                        Supports </Link>
+                        
                         </li>
                     </ul>
                 </aside>
@@ -95,7 +89,7 @@ const Sidebar = () => {
                 <div id="navbar-wrapper">
                     <nav className="navbar navbar-inverse">
                         <div className="container-fluid">
-                            <div style={{ height: "55px",backgroundColor:"#15939a" }} className='w-100 align-items-center ps-3 pe-3 d-flex justify-content-between'>
+                            <div style={{ height: "55px",backgroundColor:"black" }} className='w-100 align-items-center ps-3 pe-3 d-flex justify-content-between'>
                                 <div>
                                     <button className="border border-2 rounded-2" type="button" onClick={handleSideBar}
                                     >
@@ -105,21 +99,8 @@ const Sidebar = () => {
                                 <CRMHeader />
                             </div>
                         </div>
-                        {/* <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fa fa-bars"></i></a>
-            </div>
-        </div> */}
                     </nav>
                 </div>
-                {/* <section id="content-wrapper">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            {view === "" ? <Dashboard /> :view === "Brand" ? <Brand /> : view === "Service" ?
-                                <Service /> :view === "Complaint" ? <Complaint /> : view==="Customer"?<Customer />:view==="Inventry"?<Inventry />:view==="Accounts"?<Account />:view==="Setting"?<Setting />:view==="Support"?<Support />: ""}
-                        </div>
-                    </div>
-                </section> */}
             </div>
 
         </div>
