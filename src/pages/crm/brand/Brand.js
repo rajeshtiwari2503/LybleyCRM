@@ -65,7 +65,9 @@ const BrandPage = () => {
             <DashboardHeader pagetitle={"Brand Dashboard"}
                 modalbutton={() => {
                     return <div className="col-auto d-flex w-sm-100">
-                        <button type="button" onClick={() => { setIsmodal(true) }} className="btn btn-primary btn-set-task w-sm-100"  ><i className="icofont-plus-circle me-2 fs-6"></i>Add Fault</button>
+                       <Link href={"/crm/brand/AddBrand"} className='text-decoration-none'>
+                        <button type="button"   className="btn btn-primary btn-set-task w-sm-100"  ><i className="icofont-plus-circle me-2 fs-6"></i>Add Brand</button>
+                       </Link> 
                     </div>
                 }} />
 
@@ -124,75 +126,7 @@ const BrandPage = () => {
                     </div>
                 </div>
             </div>
-            <Modal show={ismodal} style={{ display: 'block' }}>
-                <Modal.Header className="modal-header" onHide={() => { setIsmodal(false) }} closeButton>
-                    <h5 className="modal-title  fw-bold" id="expaddLabel">Add Brand</h5>
-                </Modal.Header>
-                <Modal.Body className="modal-body">
-                    <div className="deadline-form">
-                        <form>
-                            <div className="row g-3 mb-3  ">
-                                <div className="col-sm-12 ">
-                                    <label htmlFor="item" className="form-label">Brand Name</label>
-                                    <input type="text" className={(errors && errors.name) ? "form-control   border-danger " : "form-control  "} id="item"
-                                        {...register('name')}
-
-                                    />
-                                    <div className='text-danger'>
-                                        {errors.name?.message}
-                                    </div>
-                                </div>
-                                <div className="col-sm-12">
-                                    <label htmlFor="item" className="form-label">Brand Email</label>
-                                    <input type="email" className={(errors && errors.email) ? "form-control   border-danger " : "form-control  "} id="item"
-                                        {...register('email')}
-
-                                    />
-                                    <div className='text-danger'>
-                                        {errors.email?.message}
-                                    </div>
-                                </div>
-                                <div className="col-sm-12">
-                                    <label htmlFor="item" className="form-label">Contact No.</label>
-                                    <input type="number" className={(errors && errors.contact) ? "form-control   border-danger " : "form-control  "} id="item"
-                                        {...register('contact')}
-
-                                    />
-                                    <div className='text-danger'>
-                                        {errors.contact?.message}
-                                    </div>
-                                </div>
-                                <div className="col-sm-12">
-                                    <label htmlFor="item" className="form-label">Password</label>
-                                    <input type="password" className={(errors && errors.password) ? "form-control   border-danger " : "form-control  "} id="item"
-                                        {...register('password')}
-
-                                    />
-                                    <div className='text-danger'>
-                                        {errors.password?.message}
-                                    </div>
-                                </div>
-                                <div className="col-sm-12">
-                                    <label htmlFor="item" className="form-label">Confirm Password</label>
-                                    <input type="password" className={(errors && errors.cPassword) ? "form-control   border-danger " : "form-control  "} id="item"
-                                        {...register('cPassword')}
-
-                                    />
-                                    <div className='text-danger'>
-                                        {errors.cPassword?.message}
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                </Modal.Body>
-                <Modal.Footer className="modal-footer">
-                    <button onClick={() => { setIsmodal(false) }} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" disabled={loading} className="btn btn-primary"onClick= {handleSubmit(onRegister)}>{loading ? "Adding..." : "Add"}</button>
-                </Modal.Footer>
-
-            </Modal>
+            
 
         </div>
     )
