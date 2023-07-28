@@ -30,7 +30,7 @@ const Sidebar = () => {
 
                     </div>
                     <ul className="sidebar-nav ">
-                        <li className={currentPath==="/crm/dashboard" ? "active" : ""}>
+                        <li className={currentPath.startsWith("/crm/dashboard") ? "active" : ""}>
                        
                         <Link href="/crm/dashboard" className='d-flex anchor align-items-center ps-3 text-decoration-none'>
                                 <DashboardIcon />
@@ -38,46 +38,46 @@ const Sidebar = () => {
                                </Link>
 
                         </li>
-                        <li className={currentPath==="/crm/brand" ? "active" : ""}>
+                        <li className={currentPath.startsWith("/crm/brand") ? "active" : ""}>
                         <Link href="/crm/brand" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <AttributionIcon />
                                 Brand
                                 </Link>
                             
                         </li>
-                        <li className={currentPath==="/crm/customer" ? "active" : ""}>
+                        <li className={currentPath.startsWith("/crm/customer") ? "active" : ""}>
                         <Link href="/crm/customer" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <PersonIcon />
                                Customer</Link>
                             
                         </li>
-                        <li className={currentPath==="/crm/complaint" ? "active" : ""}>
+                        <li className={currentPath.startsWith("/crm/complaint") ? "active" : ""}>
                         <Link href="/crm/complaint" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <MiscellaneousServicesIcon />
                                 Complaint</Link>
                         
                         </li>
-                        <li className={currentPath==="/crm/service" ? "active" : ""}>
+                        <li className={currentPath.startsWith("/crm/service") ? "active" : ""}>
                         <Link href="/crm/service" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <MiscellaneousServicesIcon />
                         Service</Link>
                         
-                        </li><li className={currentPath==="/crm/inventry" ? "active" : ""}>
+                        </li><li className={currentPath.startsWith("/crm/inventry") ? "active" : ""}>
                         <Link href="/crm/inventry" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <InventoryIcon />
                             Inventory</Link>
                         
-                        </li><li className={currentPath==="/crm/account" ? "active" : ""}>
+                        </li><li className={currentPath.startsWith("/crm/account") ? "active" : ""}>
                         <Link href="/crm/account" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <AccountCircleIcon />
                         Accounts</Link>
                         
-                        </li><li className={currentPath==="/crm/setting" ? "active" : ""}>
+                        </li><li className={currentPath.startsWith("/crm/setting") ? "active" : ""}>
                         <Link href="/crm/setting" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <SettingsIcon />
                         Settings</Link>
                         
-                        </li><li className={currentPath==="/crm/support" ? "active" : ""}>
+                        </li><li className={currentPath.startsWith("/crm/support") ? "active" : ""}>
                         <Link href="/crm/support" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <SupportIcon />
                         Supports </Link>
