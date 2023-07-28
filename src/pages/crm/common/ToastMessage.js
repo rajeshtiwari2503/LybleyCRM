@@ -1,4 +1,5 @@
-import toast from 'react-hot-toast';
+import React from 'react'
+import {toast} from 'react-hot-toast';
 
 
      const ToastMessage = (props) => {
