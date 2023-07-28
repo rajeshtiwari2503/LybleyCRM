@@ -20,9 +20,11 @@ const CRMHeader = () => {
     setAnchorEl(null);
   };
   const handleLogout=()=>{
-    localStorage.removeItem("user1");
+    localStorage.removeItem("crmUser");
     router.push("/sign-in");
   }
+  const obj=localStorage.getItem("crmUser");
+  const user=JSON.parse(obj);
   return (
     <div>
       <div className="d-flex align-items-center">
@@ -32,7 +34,8 @@ const CRMHeader = () => {
       <div className="px-2">
       <NotificationsIcon fontSize='large' style={{cursor:"pointer",color:"white"}} />
       </div>
-      <div className="px-2">
+      <div className="px-2 d-flex">
+     {user &&  <div className='text-white me-2 '>{user.name}</div>}
       <AccountCircleIcon fontSize='large' style={{cursor:"pointer",color:"white"}} onClick={handleClick} />
       {/* <div className="d-flex align-items-center text-center">
                 <Button

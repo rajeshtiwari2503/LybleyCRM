@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -15,19 +15,44 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
+import httpCommon from '@/src/http-common';
 
 const SignIn = () => {
+
 const router=useRouter()
-  const handleSubmit = (event) => {
+
+  const [user,setUser]=useState({email:"",password:""});
+  const [error,setError]=useState("");
+
+  const handleChange=(e)=>{
+      let user1={...user};
+      user1[e.currentTarget.name]=e.currentTarget.value;
+      setUser(user1);
+      setError("");
+  } 
+
+   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-    localStorage.setItem("user1","ABC")
-    router.push("/crm/dashboard")
+     login(user); 
   };
+  const handleEnter = (event) => {
+    if(event.key=="Enter")
+     login(user); 
+  };
+
+  const login=async(user)=>{
+       try{
+        let response=await httpCommon.post("/lybleyCRMlogin",user);
+        let {data}=response;
+        let obj=JSON.stringify(data);
+        localStorage.setItem("crmUser",obj);
+        router.push("/crm/dashboard");
+       }catch(err){
+        if(err.response.status===401)
+        setError(err.response.data);
+        console.log(err);
+       }
+  }
 
   return (
     <>
@@ -84,6 +109,9 @@ const router=useRouter()
               <Typography component="h1" variant="h5">
                 Sign in
               </Typography>
+              <Typography color="red" component="h4" variant="h6">
+                  {error?.length>0 ? error : "" }
+              </Typography>
               <Box
                 component="form"
                 noValidate
@@ -99,6 +127,7 @@ const router=useRouter()
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  onChange={handleChange}
                 />
                 <TextField
                   margin="normal"
@@ -109,6 +138,8 @@ const router=useRouter()
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  onChange={handleChange}
+                  onKeyPress={handleEnter}
                 />
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
