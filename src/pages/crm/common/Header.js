@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SettingsIcon from '@mui/icons-material/Settings';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import InfoIcon from '@mui/icons-material/Info';
@@ -12,10 +12,18 @@ import { useRouter } from 'next/router';
 const CRMHeader = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const router=useRouter();
+  const [user,setUser]=useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  useEffect(()=>{
+    if (typeof window !== 'undefined') {
+      const obj=localStorage.getItem("crmUser");
+      const user=JSON.parse(obj);
+      setUser(user);
+    }
+},[])
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -23,8 +31,7 @@ const CRMHeader = () => {
     localStorage.removeItem("crmUser");
     router.push("/sign-in");
   }
-  const obj=localStorage.getItem("crmUser");
-  const user=JSON.parse(obj);
+
   return (
     <div>
       <div className="d-flex align-items-center">
