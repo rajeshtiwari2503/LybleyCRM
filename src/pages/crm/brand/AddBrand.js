@@ -5,6 +5,7 @@ import httpCommon from '@/src/http-common';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import ToastMessage from '../common/ToastMessage';
 
 const AddBrand = () => {
      
@@ -19,10 +20,13 @@ const AddBrand = () => {
             let { data } = response
           
             setLoading(false)
+            ToastMessage(data)
         }
         catch (err) {
             setLoading(false)
             console.log(err)
+            ToastMessage(data)
+
         }
     }
 
