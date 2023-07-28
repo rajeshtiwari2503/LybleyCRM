@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
  
 
-export function ConfirmBox(props) {
+  function ConfirmBox(props) {
 
     
     return (
@@ -41,3 +41,4 @@ export function ConfirmBox(props) {
     );
 }
 
+export default ConfirmBox;
