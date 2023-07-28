@@ -48,7 +48,7 @@ const BrandPage = () => {
                         getData?.map((item, i) =>
                             <div key={i} className="col-6 fw-bold text-center  col-md-4 col-lg-3 mt-4  ">
                                 <div className="card py-4 shadow dashhover "  >
-                                    <Link className='text-decoration-none' href={"/crm/brand/BrandDetailts"}>
+                                    <Link className='text-decoration-none' href={`/crm/brand/BrandDetailts/${item?._id}`}>
                                         <div className='text-dark'> {item?.name}</div>
                                         <div className=' mt-4'>
                                             <Image height={50} width={50} alt='brand' src="https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI" />
