@@ -45,7 +45,7 @@ const BrandPage = () => {
                 :
                 <div className="row ">
                     {getData && getData?.length > 0 ?
-                        getData?.map((item, i) =>
+                        getData?.filter(f1=>f1?.role==="BRAND")?.map((item, i) =>
                             <div key={i} className="col-6 fw-bold text-center  col-md-4 col-lg-3 mt-4  ">
                                 <div className="card py-4 shadow dashhover "  >
                                     <Link className='text-decoration-none' href={"/crm/brand/BrandDetailts"}>
