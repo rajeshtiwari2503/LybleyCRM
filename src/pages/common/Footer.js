@@ -50,7 +50,7 @@ import style from "../common.module.css"
                             <Link className={`${style.footerLink} text-decoration-none text-muted`} href="/sparePartBrands" ><li style={{color:"#acabad"}}>Brands</li></Link>
                             <Link className={`${style.footerLink} text-decoration-none text-muted`} href="/SiteMap" ><li style={{color:"#acabad"}}>SiteMap</li></Link>
                             <Link className={`${style.footerLink} text-decoration-none text-muted`} href="/activatePlan" ><li style={{color:"#acabad"}}>Activate Plan</li></Link>
-                            <Link className={`${style.footerLink} text-decoration-none text-muted`}   href="/sign-in" ><li style={{color:"#acabad"}}>Sign In Seller</li></Link>
+                            <Link className={`${style.footerLink} text-decoration-none text-muted`}   href="/sign-in" ><li style={{color:"#acabad"}}>Sign In  </li></Link>
                             </ul>
                             {/* <p className="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
                     <form action="#">

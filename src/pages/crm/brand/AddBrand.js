@@ -6,9 +6,10 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import ToastMessage from '../common/ToastMessage';
+import { useRouter } from 'next/router';
 
 const AddBrand = () => {
-
+    const router = useRouter()
     const [loading, setLoading] = useState(false);
 
     const handleRegistration = async (obj) => {
@@ -17,13 +18,14 @@ const AddBrand = () => {
             let creatData = {
                 name: obj?.name, email: obj?.email, contact: +(obj?.contact), password: obj?.password
                 , gstNo: obj?.gstNo, owner: obj?.owner, basePrice: +(obj?.basePrice), distanceLimitForBasePriceInKm: +(obj?.distanceLimitForBasePriceInKm), aboveBasePricePerKm: +(obj?.aboveBasePricePerKm)
-                , allowSerialNumberGeneration: obj?.allowSerialNumberGeneration, website: obj?.website, landlineNo: +(obj?.landlineNo), addressLine1: obj?.addressLine1, addressLine2: obj?.addressLine2, landmark: obj?.landmark , zipCode: obj?.zipCode, listOfArea: obj?.listOfArea , locality: obj?.locality , city: obj?.city , district: obj?.district , state: obj?.state , companyName: obj?.companyName , panNumber: obj?.panNumber, agreementDate: obj?.agreementDate, perMonthAmount: +(obj?.permonthAmount), crm: obj?.crm , tollFree: obj?.tollFree , customerCare: obj?.customerCare , courierCharges: obj?.courierCharges, warehouseCharge: obj?.warehouseCharge , url: obj?.url , logo: obj?.logo , status: "logo"
+                , allowSerialNumberGeneration: obj?.allowSerialNumberGeneration, website: obj?.website, landlineNo: +(obj?.landlineNo), addressLine1: obj?.addressLine1, addressLine2: obj?.addressLine2, landmark: obj?.landmark, zipCode: obj?.zipCode, listOfArea: obj?.listOfArea, locality: obj?.locality, city: obj?.city, district: obj?.district, state: obj?.state, companyName: obj?.companyName, panNumber: obj?.panNumber, agreementDate: obj?.agreementDate, perMonthAmount: +(obj?.permonthAmount), crm: obj?.crm, tollFree: obj?.tollFree, customerCare: obj?.customerCare, courierCharges: obj?.courierCharges, warehouseCharge: obj?.warehouseCharge, url: obj?.url, logo: obj?.logo, status: "logo"
             }
 
             let response = await httpCommon.post("/registration", creatData)
             let { data } = response
 
             setLoading(false)
+            router.push("/crm/brand")
             ToastMessage(data)
         }
         catch (err) {
