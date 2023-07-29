@@ -9,7 +9,6 @@ const BrandDetailts = () => {
   const [brand,setBrand]=useState({});
   const router=useRouter();
   const {id}=router.query;
-  console.log(brand);
   useEffect(()=>{
     getBrand();
   },[id]);
@@ -28,7 +27,7 @@ const BrandDetailts = () => {
    <DashboardHeader pagetitle={"Basic Details"}
                 modalbutton={() => {
                     return <div className="col-auto d-flex w-sm-100">
-                        <Link href={"/crm/brand/edit"} className='text-decoration-none'>
+                        <Link href={`/crm/brand/EditBrand/${id}`} className='text-decoration-none'>
                             <button type="button" className="btn btn-warning btn-set-task w-sm-100"  ><i className="icofont-plus-circle me-2 fs-6"></i>Edit Brand</button>
                         </Link>
                     </div>
