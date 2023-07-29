@@ -8,6 +8,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import PersonIcon from '@mui/icons-material/Person';
+import CategoryIcon from '@mui/icons-material/Category';
+import ExtensionIcon from '@mui/icons-material/Extension';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -42,6 +44,20 @@ const Sidebar = () => {
                         <Link href="/crm/brand" className='text-decoration-none d-flex anchor align-items-center ps-3'>
                                 <AttributionIcon />
                                 Brand
+                                </Link>
+                            
+                        </li>
+                        <li className={currentPath.startsWith("/crm/category") ? "active" : ""}>
+                        <Link href="/crm/category" className='text-decoration-none d-flex anchor align-items-center ps-3'>
+                                <CategoryIcon />
+                              Product Category
+                                </Link>
+                            
+                        </li>
+                        <li className={currentPath.startsWith("/crm/product") ? "active" : ""}>
+                        <Link href="/crm/product" className='text-decoration-none d-flex anchor align-items-center ps-3'>
+                                <ExtensionIcon />
+                              Product
                                 </Link>
                             
                         </li>

@@ -8,30 +8,30 @@ import * as Yup from 'yup';
 import ToastMessage from '../common/ToastMessage';
 import { useRouter } from 'next/router';
 
- 
+
 const AddBrand = (props) => {
-    const {edit,brand}=props;
-    const router=useRouter();
-   
+    const { edit, brand } = props;
+    const router = useRouter();
+
     const [loading, setLoading] = useState(false);
 
     const handleRegistration = async (obj) => {
         try {
             setLoading(true)
             let creatData = {
-                name: obj?.name,category:obj?.category, email: obj?.email, contact: +(obj?.contact), password: obj?.password
+                name: obj?.name, category: obj?.category, email: obj?.email, contact: +(obj?.contact), password: obj?.password
                 , gstNo: obj?.gstNo, owner: obj?.owner, basePrice: +(obj?.basePrice), distanceLimitForBasePriceInKm: +(obj?.distanceLimitForBasePriceInKm), aboveBasePricePerKm: +(obj?.aboveBasePricePerKm)
- 
-                , allowSerialNumberGeneration: obj?.allowSerialNumberGeneration,designation:obj?.designation, website: obj?.website, landlineNo: +(obj?.landlineNo), addressLine1: obj?.addressLine1, addressLine2: obj?.addressLine2, landmark: obj?.landmark , zipCode: obj?.zipCode, listOfArea: obj?.listOfArea , locality: obj?.locality , city: obj?.city , district: obj?.district , state: obj?.state , companyName: obj?.companyName , panNumber: obj?.panNumber, agreementDate: obj?.agreementDate, perMonthAmount: +(obj?.perMonthAmount), crm: obj?.crm , tollFree: obj?.tollFree , customerCare: obj?.customerCare , courierCharge: +obj?.courierCharge, warehouseCharge: obj?.warehouseCharge , url: obj?.url , logo: obj?.logo , status: obj?.status
- 
+
+                , allowSerialNumberGeneration: obj?.allowSerialNumberGeneration, designation: obj?.designation, website: obj?.website, landlineNo: +(obj?.landlineNo), addressLine1: obj?.addressLine1, addressLine2: obj?.addressLine2, landmark: obj?.landmark, zipCode: obj?.zipCode, listOfArea: obj?.listOfArea, locality: obj?.locality, city: obj?.city, district: obj?.district, state: obj?.state, companyName: obj?.companyName, panNumber: obj?.panNumber, agreementDate: obj?.agreementDate, perMonthAmount: +(obj?.perMonthAmount), crm: obj?.crm, tollFree: obj?.tollFree, customerCare: obj?.customerCare, courierCharge: +obj?.courierCharge, warehouseCharge: obj?.warehouseCharge, url: obj?.url, logo: "logo", status: obj?.status
+
             }
 
             let response = await httpCommon.post("/registration", creatData)
             let { data } = response
 
             setLoading(false)
-            router.push("/crm/brand")
             ToastMessage(data)
+            router.push("/crm/brand")
         }
         catch (err) {
             setLoading(false)
@@ -41,12 +41,12 @@ const AddBrand = (props) => {
         }
     }
 
-    const handleEdit=async(obj)=>{
-        try{
-            let response=await httpCommon.patch(`/editBrandBy/${props?.id}`,obj);
-            let {data}=response;
+    const handleEdit = async (obj) => {
+        try {
+            let response = await httpCommon.patch(`/editBrandBy/${props?.id}`, obj);
+            let { data } = response;
             router.push(`/crm/brand/BrandDetailts/${props?.id}`);
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
     }
@@ -66,7 +66,7 @@ const AddBrand = (props) => {
             .required('Password is required')
             .min(6, 'Password must be at least 6 characters')
             .max(40, 'Password must not exceed 40 characters'),
-        cPassword: Yup.string()
+        cPassword:!edit && Yup.string()
             .required('Confirm Password is required')
             .oneOf([Yup.ref('password'), null], 'Confirm Password does not match'),
         gstNo: Yup.string().required('Gst No. is required')
@@ -99,7 +99,7 @@ const AddBrand = (props) => {
         courierCharge: Yup.string().required(' Courier Charges is required'),
         warehouseCharge: Yup.string().required(' Warehouse Charge is required'),
         url: Yup.string().required(' URL is required'),
-        logo: Yup.string().required(' Logo is required'),
+        // logo: Yup.string().required(' Logo is required'),
         status: Yup.string().required(' Status is required'),
 
     });
@@ -114,12 +114,13 @@ const AddBrand = (props) => {
     });
 
     const onRegister = data => {
-       edit ? handleEdit(data) : handleRegistration(data);
+        console.log("data", data);
+        edit ? handleEdit(data) : handleRegistration(data);
     }
     useEffect(() => {
         reset(brand);
-      }, [brand, reset]);
-      
+    }, [brand, reset]);
+
     return (
         <div className='bg-light p-0 m-0'>
             <DashboardHeader pagetitle={edit ? "Edit Brand" : "Add Brand"}
@@ -138,7 +139,7 @@ const AddBrand = (props) => {
                                 <Controller
                                     name="category"
                                     control={control}
-                                    defaultValue={edit ? brand?.category : ""} 
+                                    defaultValue={edit ? brand?.category : ""}
                                     render={({ field }) => (
                                         <select className="form-select"{...field}>
                                             <option value="">Select  Product Category</option>
@@ -147,7 +148,7 @@ const AddBrand = (props) => {
                                             <option value="Kitchen Appliances">Kitchen Appliances</option>
                                             <option value="Audio and Video">Audio and Video</option>
                                             <option value="Electric Vehicle">Electric Vehicle</option>
-                                            
+
                                         </select>
                                     )}
                                 />
@@ -161,8 +162,8 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Brand Name</label>
                             <input type="text" className={(errors && errors.name) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('name')}
-                                defaultValue={edit ? brand?.name : ""} 
-                        
+                                defaultValue={edit ? brand?.name : ""}
+
                             />
                             <div className='text-danger'>
                                 {errors.name?.message}
@@ -172,7 +173,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Brand Email</label>
                             <input type="email" className={(errors && errors.email) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('email')}
-                                defaultValue={edit ? brand?.email : ""} 
+                                defaultValue={edit ? brand?.email : ""}
 
                             />
                             <div className='text-danger'>
@@ -183,7 +184,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Contact No.</label>
                             <input type="number" className={(errors && errors.contact) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('contact')}
-                                defaultValue={edit ? brand?.number : ""} 
+                                defaultValue={edit ? brand?.number : ""}
                             />
                             <div className='text-danger'>
                                 {errors.contact?.message}
@@ -193,14 +194,14 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Password</label>
                             <input type="password" className={(errors && errors.password) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('password')}
-                                defaultValue={edit ? brand?.password : ""} 
+                                defaultValue={edit ? brand?.password : ""}
 
                             />
                             <div className='text-danger'>
                                 {errors.password?.message}
                             </div>
                         </div>
-                        <div className="col-sm-12 col-md-4 ">
+                        {!edit ? <div className="col-sm-12 col-md-4 ">
                             <label htmlFor="item" className="form-label">Confirm Password</label>
                             <input type="password" className={(errors && errors.cPassword) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('cPassword')}
@@ -210,12 +211,13 @@ const AddBrand = (props) => {
                                 {errors.cPassword?.message}
                             </div>
                         </div>
+                            : ""}
 
                         <div className="col-sm-12 col-md-4 ">
                             <label htmlFor="item" className="form-label">GST No.</label>
                             <input type="text" className={(errors && errors.gstNo) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('gstNo')}
-                                defaultValue={edit ? brand?.gstNo : ""} 
+                                defaultValue={edit ? brand?.gstNo : ""}
                             />
                             <div className='text-danger'>
                                 {errors.gstNo?.message}
@@ -225,7 +227,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Owner/MD/CEO Name</label>
                             <input type="text" className={(errors && errors.owner) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('owner')}
-                                defaultValue={edit ? brand?.owner : ""} 
+                                defaultValue={edit ? brand?.owner : ""}
                             />
                             <div className='text-danger'>
                                 {errors.owner?.message}
@@ -245,7 +247,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Distance Limit for Base Price (in Km)</label>
                             <input type="text" className={(errors && errors.distanceLimitForBasePriceInKm) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('distanceLimitForBasePriceInKm')}
-                                defaultValue={edit ? brand?.distanceLimitForBasePriceInKm : ""} 
+                                defaultValue={edit ? brand?.distanceLimitForBasePriceInKm : ""}
                             />
                             <div className='text-danger'>
                                 {errors.distanceLimitForBasePriceInKm?.message}
@@ -254,7 +256,7 @@ const AddBrand = (props) => {
                         <div className="col-sm-12 col-md-4 ">
                             <label htmlFor="item" className="form-label">Above Base Price per km</label>
                             <input type="text" className={(errors && errors.aboveBasePricePerKm) ? "form-control   border-danger " : "form-control  "} id="item"
-                                defaultValue={edit ? brand?.aboveBasePricePerKm : ""} 
+                                defaultValue={edit ? brand?.aboveBasePricePerKm : ""}
                                 {...register('aboveBasePricePerKm')}
 
                             />
@@ -266,7 +268,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Allow Serial Number Generation</label>
                             <input type="text" className={(errors && errors.allowSerialNumberGeneration) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('allowSerialNumberGeneration')}
-                                defaultValue={edit ? brand?.allowSerialNumberGeneration : ""} 
+                                defaultValue={edit ? brand?.allowSerialNumberGeneration : ""}
                             />
                             <div className='text-danger'>
                                 {errors.allowSerialNumberGeneration?.message}
@@ -276,7 +278,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Website</label>
                             <input type="text" className={(errors && errors.website) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('website')}
-                                defaultValue={edit ? brand?.website : ""} 
+                                defaultValue={edit ? brand?.website : ""}
                             />
                             <div className='text-danger'>
                                 {errors.website?.message}
@@ -286,7 +288,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Landline No</label>
                             <input type="text" className={(errors && errors.landlineNo) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('landlineNo')}
-                                defaultValue={edit ? brand?.landlineNo : ""} 
+                                defaultValue={edit ? brand?.landlineNo : ""}
                             />
                             <div className='text-danger'>
                                 {errors.landlineNo?.message}
@@ -296,7 +298,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Address Line1</label>
                             <input type="text" className={(errors && errors.addressLine1) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('addressLine1')}
-                                defaultValue={edit ? brand?.addressLine1 : ""} 
+                                defaultValue={edit ? brand?.addressLine1 : ""}
 
                             />
                             <div className='text-danger'>
@@ -307,7 +309,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Address Line2</label>
                             <input type="text" className={(errors && errors.addressLine2) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('addressLine2')}
-                                defaultValue={edit ? brand?.addressLine2 : ""} 
+                                defaultValue={edit ? brand?.addressLine2 : ""}
 
                             />
                             <div className='text-danger'>
@@ -318,7 +320,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Landmark</label>
                             <input type="text" className={(errors && errors.landmark) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('landmark')}
-                                defaultValue={edit ? brand?.landmark : ""} 
+                                defaultValue={edit ? brand?.landmark : ""}
                             />
                             <div className='text-danger'>
                                 {errors.landmark?.message}
@@ -328,7 +330,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Zip Code</label>
                             <input type="text" className={(errors && errors.zipCode) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('zipCode')}
-                                defaultValue={edit ? brand?.zipCode : ""} 
+                                defaultValue={edit ? brand?.zipCode : ""}
                             />
                             <div className='text-danger'>
                                 {errors.zipCode?.message}
@@ -338,7 +340,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">List Of Area</label>
                             <input type="text" className={(errors && errors.listOfArea) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('listOfArea')}
-                                defaultValue={edit ? brand?.listOfArea : ""} 
+                                defaultValue={edit ? brand?.listOfArea : ""}
                             />
                             <div className='text-danger'>
                                 {errors.listOfArea?.message}
@@ -348,7 +350,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Locality</label>
                             <input type="text" className={(errors && errors.locality) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('locality')}
-                                defaultValue={edit ? brand?.locality : ""} 
+                                defaultValue={edit ? brand?.locality : ""}
                             />
                             <div className='text-danger'>
                                 {errors.locality?.message}
@@ -358,7 +360,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">City</label>
                             <input type="text" className={(errors && errors.city) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('city')}
-                                defaultValue={edit ? brand?.city : ""} 
+                                defaultValue={edit ? brand?.city : ""}
                             />
                             <div className='text-danger'>
                                 {errors.city?.message}
@@ -368,7 +370,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">District</label>
                             <input type="text" className={(errors && errors.district) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('district')}
-                                defaultValue={edit ? brand?.district : ""} 
+                                defaultValue={edit ? brand?.district : ""}
                             />
                             <div className='text-danger'>
                                 {errors.district?.message}
@@ -378,7 +380,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">State</label>
                             <input type="text" className={(errors && errors.state) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('state')}
-                                defaultValue={edit ? brand?.state : ""} 
+                                defaultValue={edit ? brand?.state : ""}
                             />
                             <div className='text-danger'>
                                 {errors.state?.message}
@@ -388,7 +390,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Company Name</label>
                             <input type="text" className={(errors && errors.companyName) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('companyName')}
-                                defaultValue={edit ? brand?.companyName : ""} 
+                                defaultValue={edit ? brand?.companyName : ""}
                             />
                             <div className='text-danger'>
                                 {errors.companyName?.message}
@@ -398,7 +400,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Pan Number</label>
                             <input type="text" className={(errors && errors.panNumber) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('panNumber')}
-                                defaultValue={edit ? brand?.panNumber : ""} 
+                                defaultValue={edit ? brand?.panNumber : ""}
                             />
                             <div className='text-danger'>
                                 {errors.panNumber?.message}
@@ -408,7 +410,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Agreement Date</label>
                             <input type="text" className={(errors && errors.agreementDate) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('agreementDate')}
-                                defaultValue={edit ? brand?.agreementDate : ""} 
+                                defaultValue={edit ? brand?.agreementDate : ""}
                             />
                             <div className='text-danger'>
                                 {errors.agreementDate?.message}
@@ -418,7 +420,7 @@ const AddBrand = (props) => {
                             <label htmlFor="item" className="form-label">Permonth Amount</label>
                             <input type="text" className={(errors && errors.perMonthAmount) ? "form-control   border-danger " : "form-control  "} id="item"
                                 {...register('perMonthAmount')}
-                                defaultValue={edit ? brand?.perMonthAmount : ""} 
+                                defaultValue={edit ? brand?.perMonthAmount : ""}
                             />
                             <div className='text-danger'>
                                 {errors.perMonthAmount?.message}
@@ -430,14 +432,14 @@ const AddBrand = (props) => {
                                 <Controller
                                     name="crm"
                                     control={control}
-                                defaultValue={edit ? brand?.crm : ""}  
+                                    defaultValue={edit ? brand?.crm : ""}
                                     render={({ field }) => (
                                         <select className="form-select"{...field}>
                                             <option value="">Select </option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
 
-                                          
+
                                         </select>
                                     )}
                                 />
@@ -453,14 +455,14 @@ const AddBrand = (props) => {
                                 <Controller
                                     name="tollFree"
                                     control={control}
-                                defaultValue={edit ? brand?.tollFree : ""} 
+                                    defaultValue={edit ? brand?.tollFree : ""}
                                     render={({ field }) => (
                                         <select className="form-select"{...field}>
                                             <option value="">Select </option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
 
-                                            
+
                                         </select>
                                     )}
                                 />
@@ -475,15 +477,15 @@ const AddBrand = (props) => {
                                 <label className="form-label">Customer Care</label>
                                 <Controller
                                     name="customerCare"
-                                defaultValue={edit ? brand?.customerCare : ""} 
-                                control={control}
+                                    defaultValue={edit ? brand?.customerCare : ""}
+                                    control={control}
                                     render={({ field }) => (
                                         <select className="form-select"{...field}>
                                             <option value="">Select </option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
 
-                                            
+
                                         </select>
                                     )}
                                 />
@@ -496,7 +498,7 @@ const AddBrand = (props) => {
                         <div className="col-sm-12 col-md-4 ">
                             <label htmlFor="item" className="form-label">Courier Charges</label>
                             <input type="text" className={(errors && errors.courierCharge) ? "form-control   border-danger " : "form-control  "} id="item"
-                                defaultValue={edit ? brand?.courierCharge : ""} 
+                                defaultValue={edit ? brand?.courierCharge : ""}
                                 {...register('courierCharge')}
 
                             />
@@ -510,15 +512,15 @@ const AddBrand = (props) => {
                                 <label className="form-label">Warehouse Charge</label>
                                 <Controller
                                     name="warehouseCharge"
-                                defaultValue={edit ? brand?.warehouseCharge : ""} 
-                                control={control} 
+                                    defaultValue={edit ? brand?.warehouseCharge : ""}
+                                    control={control}
                                     render={({ field }) => (
                                         <select className="form-select"{...field}>
                                             <option value="">Select </option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
 
-                                            
+
                                         </select>
                                     )}
                                 />
@@ -531,7 +533,7 @@ const AddBrand = (props) => {
                         <div className="col-sm-12 col-md-4 ">
                             <label htmlFor="item" className="form-label">Designation</label>
                             <input type="text" className={(errors && errors.designation) ? "form-control   border-danger " : "form-control  "} id="item"
-                                defaultValue={edit ? brand?.designation : ""} 
+                                defaultValue={edit ? brand?.designation : ""}
                                 {...register('designation')}
 
                             />
@@ -542,7 +544,7 @@ const AddBrand = (props) => {
                         <div className="col-sm-12 col-md-4 ">
                             <label htmlFor="item" className="form-label">URL</label>
                             <input type="text" className={(errors && errors.url) ? "form-control   border-danger " : "form-control  "} id="item"
-                                defaultValue={edit ? brand?.url : ""} 
+                                defaultValue={edit ? brand?.url : ""}
                                 {...register('url')}
 
                             />
@@ -550,9 +552,9 @@ const AddBrand = (props) => {
                                 {errors.url?.message}
                             </div>
                         </div>
-                        <div className="col-sm-12 col-md-4 ">
+                        {/* <div className="col-sm-12 col-md-4 ">
                             <label htmlFor="item" className="form-label">Logo</label>
-                            
+
                             <Controller
                                 name="logo"
                                 control={control}
@@ -564,29 +566,38 @@ const AddBrand = (props) => {
                             <div className='text-danger'>
                                 {errors.logo?.message}
                             </div>
-                        </div>
-                        <div className="col-sm-12 col-md-4  ">
-                            <Controller
-                                name="status"
-                                defaultValue={edit ? brand?.status : ""} 
-                                control={control}
-                                rules={{ required: 'Please select an option' }}
-                                render={({ field }) => (
-                                    <div>
-                                        <label htmlFor="item" className="form-label mt-4">Status</label>
-                                        <label>
-                                            <input className="form-label m-3" type="radio" value="Yes" {...field} />
-                                            Yes
-                                        </label>
-                                        <label  >
-                                            <input className="form-label m-3" type="radio" value="No" {...field} />
-                                            No
-                                        </label>
-
-                                    </div>
-
-                                )}
-                            />
+                        </div> */}
+                        <div className="col-sm-12 col-md-4 d-flex ">
+                             
+                            <div className='mt-4'>Status</div>
+                            <div >
+                            <label className='m-4'  >
+                                
+                                <Controller
+                                    name="status"
+                                     defaultValue={edit && brand?.status==="Yes" ? brand?.status : ""}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <input type="radio" {...field} defaultChecked={edit ? brand?.status==="Yes" : ""}   value="Yes" />
+                                    )}
+                                />
+                             <span className='ps-3'>Yes</span> 
+                            </label>
+                            <label>
+                                <Controller
+                                    name="status"
+                                     defaultValue={edit && brand?.status==="No" ? brand?.status : ""}
+                                    control={control}
+                                    render={({ field }) => (
+                                        <input type="radio" {...field}  defaultChecked={edit ? brand?.status==="No" : ""}  value="No" />
+                                    )}
+                                />
+                                <span className='ps-3'>No</span> 
+                            </label>
+                            <div className='text-danger'>
+                                {errors.status?.message}
+                            </div>
+                            </div>
 
                         </div>
                     </div>
@@ -596,9 +607,9 @@ const AddBrand = (props) => {
 
             <div>
 
-             {!edit ?   <button type="submit" disabled={loading} className="btn btn-primary mb-3" onClick={handleSubmit(onRegister)}>{loading ? "Adding..." : "Add"}</button>
-               : <button type="submit" disabled={loading} className="btn btn-primary mb-3" onClick={handleSubmit(onRegister)}>{loading ? "Updating..." : "Update"}</button>
-                                }
+                {!edit ? <button type="submit" disabled={loading} className="btn btn-primary mb-3" onClick={handleSubmit(onRegister)}>{loading ? "Adding..." : "Add"}</button>
+                    : <button type="submit" disabled={loading} className="btn btn-primary mb-3" onClick={handleSubmit(onRegister)}>{loading ? "Updating..." : "Update"}</button>
+                }
             </div>
 
 
