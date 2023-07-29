@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 import ToastMessage from '../common/ToastMessage';
 import { useRouter } from 'next/router';
 
+ 
 const AddBrand = (props) => {
     const {edit,brand}=props;
     const router=useRouter();
@@ -20,13 +21,16 @@ const AddBrand = (props) => {
             let creatData = {
                 name: obj?.name,category:obj?.category, email: obj?.email, contact: +(obj?.contact), password: obj?.password
                 , gstNo: obj?.gstNo, owner: obj?.owner, basePrice: +(obj?.basePrice), distanceLimitForBasePriceInKm: +(obj?.distanceLimitForBasePriceInKm), aboveBasePricePerKm: +(obj?.aboveBasePricePerKm)
+ 
                 , allowSerialNumberGeneration: obj?.allowSerialNumberGeneration,designation:obj?.designation, website: obj?.website, landlineNo: +(obj?.landlineNo), addressLine1: obj?.addressLine1, addressLine2: obj?.addressLine2, landmark: obj?.landmark , zipCode: obj?.zipCode, listOfArea: obj?.listOfArea , locality: obj?.locality , city: obj?.city , district: obj?.district , state: obj?.state , companyName: obj?.companyName , panNumber: obj?.panNumber, agreementDate: obj?.agreementDate, perMonthAmount: +(obj?.perMonthAmount), crm: obj?.crm , tollFree: obj?.tollFree , customerCare: obj?.customerCare , courierCharge: +obj?.courierCharge, warehouseCharge: obj?.warehouseCharge , url: obj?.url , logo: obj?.logo , status: obj?.status
+ 
             }
 
             let response = await httpCommon.post("/registration", creatData)
             let { data } = response
 
             setLoading(false)
+            router.push("/crm/brand")
             ToastMessage(data)
         }
         catch (err) {
